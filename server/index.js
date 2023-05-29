@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/mongoose.js";
@@ -9,7 +9,7 @@ import dalleRoutes from "./routes/dalleRoutes.js";
 dotenv.config();
 
 const app = express();
-
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 
